@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101c25"><title>Rustbound — Learn Rust. Build your adventure.</title><script src="/theme.js"></script><link rel="stylesheet" href="/style.css"></head>
+<body>
+<aside class="sidebar">
+ <a class="brand" href="/" aria-label="Rustbound home"><span class="brand-icon">R<span>✦</span></span><span>rustbound<small>LEARN BY ADVENTURE</small></span></a>
+ <div class="nav-label">YOUR EXPEDITION</div>
+ <nav aria-label="Main navigation"><button class="nav" data-view="learn" aria-label="Learn Rust"><span>▤</span> Learn Rust</button><button class="nav active" data-view="play" aria-label="Coding practice"><span>◈</span> Coding practice</button><button class="nav" data-view="production" aria-label="Production scenarios"><span>⚒</span> Production lab</button><button class="nav" data-view="mcq" aria-label="Rust MCQ practice"><span>?</span> MCQ practice</button><button class="nav" data-view="map" aria-label="World map"><span>⌘</span> World map</button><button class="nav" data-view="progress" aria-label="My progress"><span>◷</span> My progress</button></nav>
+ <div class="sidebar-region"><div class="nav-label">CURRENT REGION</div><div class="region-icon">🌱</div><h3 id="side-region">First Light</h3><p id="side-sub">Every journey starts with a spark.</p><div class="progress-track"><div id="side-progress"></div></div><small id="side-count">0 of 12 questions complete</small></div>
+ <div class="sidebar-bottom"><div class="avatar" id="user-avatar">Y</div><div><span id="user-name">Explorer</span><small id="rank">Rust apprentice</small></div><span class="online"></span></div>
+</aside>
+<div class="app-shell">
+ <header><div class="breadcrumbs">Your expedition <span>/</span> <b id="breadcrumb">First Light</b></div><div class="header-stats"><span class="local-badge"><i></i> LOCAL ADVENTURE</span><span class="xp">✦ <b id="xp">0</b> XP</span><button class="subtle" type="button" data-theme-toggle>Light theme</button><button id="logout" class="subtle">Sign out</button></div></header>
+ <main>
+  <section class="intro"><div><div class="eyebrow">LEARN · PRACTICE · SHIP</div><h1>Understand Rust. <em>Build with confidence.</em></h1><p>Learn from zero, solve 100 coding challenges, and investigate real production problems.</p></div><button id="map-shortcut" class="subtle">Explore the map <span>↗</span></button></section>
+  <section id="learn-view" hidden aria-label="Learn Rust library"></section>
+  <section id="production-view" hidden aria-label="Production scenarios library"></section>
+  <section id="mcq-view" hidden aria-label="Rust multiple-choice practice"></section>
+  <div class="region-strip" id="region-strip"></div>
+  <div id="connection" role="alert" hidden></div>
+  <p id="track-notice" class="auth-notice" hidden></p>
+  <section id="play-view">
+   <div class="mission-heading"><div><span class="eyebrow" id="mission-number">QUESTION 01 / 100</span><h2 id="mission-title">Hello, world!</h2></div><span class="difficulty" id="difficulty">● Easy / medium · +100 XP</span></div>
+   <article class="interview-problem" aria-label="Interview question">
+    <div class="problem-brief"><span class="eyebrow" id="problem-topic">HASH MAPS · PROBLEM SOLVING</span><h3>Your challenge</h3><p id="problem-task"></p><h4>Constraints &amp; contract</h4><ul id="problem-constraints"></ul><p class="complexity-note">Passing checks validates the tested behavior. Explain performance and design tradeoffs as part of your practice.</p></div>
+    <div class="problem-examples"><h4>Examples</h4><div id="problem-examples"></div></div>
+    <details class="interview-followup"><summary>Explain your thinking <span>Self-review · not automatically graded</span></summary><p id="problem-followup"></p></details>
+   </article>
+   <div class="workspace">
+    <div class="game-column">
+     <section class="world" aria-label="Interactive game scene"><div class="scene-top"><span><i></i> <span id="scene-location">THE QUIET SHORE</span></span><span id="scene-status">BEACON OFFLINE</span></div><div id="scene"></div><div class="scene-caption"><span class="crab">🦀</span><span id="scene-message">A new world is waiting for your first line of code.</span></div></section>
+     <section class="editor-card"><div class="editor-toolbar"><span><i></i> <b>main.rs</b></span><div><span id="save-status">Saved locally</span><button id="reset" title="Restore starter code">↺ Reset</button></div></div><div class="code-area"><pre id="line-numbers" aria-hidden="true">1</pre><textarea id="editor" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="Rust code editor" wrap="off"></textarea></div><div class="editor-bottom"><span>Rust 2024 <span class="key-hint">· Ctrl + Enter to run</span></span><button class="primary" id="run">▶ Run code</button></div></section>
+     <section class="console" aria-label="Code results"><div class="console-heading"><span>⌁ &nbsp; OUTPUT</span><span id="check-count">Ready when you are</span></div><pre id="output" aria-live="polite">Your next adventure is one successful compile away.</pre><div id="test-results"></div></section>
+    </div>
+    <aside class="lesson-card"><div class="lesson-tabs"><button class="selected" id="lesson-tab">Approach</button><button id="hint-tab">Hints <span>✧</span></button></div><div id="lesson-content"><div class="quest-icon">⚑</div><h3 id="quest-title">Light the beacon</h3><p id="story">The shore is quiet. An old beacon could guide you home — if you can bring it back to life.</p><div class="objective"><span>LEARNING CHECKLIST</span><p id="objective"></p></div><h4>Rust concepts to explain</h4><p id="lesson"></p><a class="book-link" href="https://doc.rust-lang.org/book/" target="_blank" rel="noopener">Open the Rust Book ↗</a></div><div id="hint-content" hidden><div class="quest-icon">✧</div><h3>A nudge in the right direction</h3><p id="hint-text"></p><div class="hint-controls"><span id="hint-counter"></span><button class="subtle" id="next-hint">Another hint →</button></div><p class="small">Hints offer guidance only. Write your own implementation and pass the checks to continue.</p></div><div class="reward"><span class="reward-icon">✦</span><div><strong id="reward-xp">100 XP</strong><small>+ a new path to explore</small></div><span>◇</span></div><div class="success-panel" id="success-panel" hidden><h3>Path unlocked!</h3><p>Nice work, explorer. Your code brought this place to life.</p><button id="next" class="primary">Next mission →</button></div></aside>
+   </div>
+  </section>
+  <section id="map-view" hidden><div class="section-heading"><div><div class="eyebrow">FROM FIRST SPARK TO FEARLESS RUST</div><h2>Your world, waiting to be unlocked.</h2></div><span id="total-progress"></span></div><div id="map-regions"></div></section>
+  <section id="progress-view" hidden>
+   <div class="section-heading"><div><div class="eyebrow">EVERY SMALL WIN COUNTS</div><h2 id="progress-title">Your expedition, at a glance.</h2><p class="muted">Your code, your discoveries, your progress.</p></div><button id="resume" class="primary">Continue learning →</button></div>
+   <div class="progress-tabs" role="tablist" aria-label="My progress sections"><button type="button" id="overview-tab" role="tab" aria-selected="true" aria-controls="overview-pane">Overview</button><button type="button" id="journal-tab" role="tab" aria-selected="false" aria-controls="journal-pane">My journal</button><button type="button" id="account-tab" role="tab" aria-selected="false" aria-controls="account-pane">Account</button></div>
+   <div id="overview-pane" role="tabpanel" aria-labelledby="overview-tab"><div class="personal-stats"><article><span>PROBLEMS SOLVED</span><strong id="stat-completed">0 / 100</strong><small>Your journey through Rust</small></article><article><span>TOTAL XP</span><strong id="stat-xp">0</strong><small>Earned with every new discovery</small></article><article><span>CODE RUNS</span><strong id="stat-attempts">0</strong><small>Every attempt is a step forward</small></article><article><span>COURSE PROGRESS</span><strong id="stat-percent">0%</strong><small id="stat-rank">Rust apprentice</small></article></div>
+   <div id="reading-summary" class="progress-card" aria-live="polite"></div>
+   <div id="mcq-summary" class="progress-card" aria-live="polite"></div>
+   <div class="progress-columns"><section class="progress-card"><h3>Your regions</h3><div id="personal-regions"></div></section><section class="progress-card"><h3>Recent activity</h3><div id="personal-activity"></div></section></div>
+   </div>
+   <div id="journal-pane" role="tabpanel" aria-labelledby="journal-tab" hidden><h3>My learning journal</h3><p class="muted">Your completed topics, visible here inside your personal progress.</p><div id="journal"></div></div>
+   <div id="account-pane" role="tabpanel" aria-labelledby="account-tab" hidden><form id="profile-form" class="progress-card account-form"><h3>Account details</h3><p class="muted" id="profile-note">Keep your details up to date. Email OTP recovery is currently on hold.</p><label for="profile-email">Email address</label><input id="profile-email" type="email" autocomplete="email" maxlength="254" required><label for="profile-name">Name (optional)</label><input id="profile-name" autocomplete="name" maxlength="60"><label for="profile-hint">Password hint question</label><input id="profile-hint" minlength="5" maxlength="160" required><small>Use a reminder question, never your password.</small><label for="profile-password">Current password</label><input id="profile-password" type="password" autocomplete="current-password" minlength="8" maxlength="128" required><button class="primary" id="profile-save">Save account details</button><p id="profile-status" role="status"></p></form></div>
+  </section>
+  <footer><span>Built for curious minds. Powered by Rust.</span><span>Python + SQLite · Personal local workspace</span></footer>
+ </main>
+</div><div id="toast" role="status" hidden></div>
+<script src="/game.js"></script>
+<link rel="stylesheet" href="/library.css">
+<link rel="stylesheet" href="/course.css">
+<link rel="stylesheet" href="/practice.css">
+<link rel="stylesheet" href="/topics.css">
+<script src="/library.js"></script>
+<script src="/mcq.js"></script>
+</body></html>
