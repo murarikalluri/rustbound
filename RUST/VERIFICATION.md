@@ -1,5 +1,10 @@
 # Verification
 
+## Two learning paths
+
+- 15 targeted checks passed, including account isolation, SQLite persistence, catalog integrity, MCQ grading, release migrations, and hidden coding answers. The new compiler comparison checks all six activities at their starting and target values and all numeric activities at 0 and 10. Generated Rust output matched the browser predictions.
+- The JSDOM interaction check exercised all six guided activities, wrong predictions, edits that missed and met the goal, next navigation, saved progress, a project prerequisite link, and existing learning, incident, MCQ, account, theme and compiler flows. These checks are not visual screenshot verification or learner testing.
+
 ## Individual topics and five-part scenarios — 31 October 2026
 
 - 92 modules with exactly one lesson per module. Existing stable IDs remain unchanged; 25 focused topics were added. Variables, match, Ok, and Err have distinct pages. The Rust Book remains linked and supplies learning-area order.

@@ -8,6 +8,12 @@ The official Rust Book guides the learning areas, but each topic is its own modu
 
 This is an original teaching curriculum, not an exhaustive list of every crate or unstable Rust feature. Reading and lab completion are self-assessed.
 
+## Choose your path
+
+First steps: six guided activities covering a greeting, variables, integer addition, if/else, loops, and a function. Predict the output, edit a value in a fixed template, compare the preview, then try a transfer task in real Rust. Activities support a helper, optional read-aloud, and account-saved completion. They are not compiler-graded challenges.
+
+Developer path: use the topic library and independent project briefs. Build a packing-list CLI, receipt calculator, text-search tool, bounded worker queue, async client, and a service with stored data. Each brief includes acceptance criteria, edge cases, a failure investigation, and a deliverable. Project work is self-reviewed.
+
 ## Installing Rust
 
 Before cooking, you need a kitchen. Before running Rust, you need its tools. rustup installs the compiler; the compiler checks your instructions and builds a program your computer can run.

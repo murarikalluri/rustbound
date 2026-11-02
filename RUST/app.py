@@ -278,6 +278,7 @@ class Handler(BaseHTTPRequestHandler):
             return self.respond(b'',302,headers={'Location':'/'})
         files = {'/':('index.html','text/html; charset=utf-8'), '/login':('login.html','text/html; charset=utf-8'), '/auth.js':('auth.js','text/javascript'), '/theme.js':('theme.js','text/javascript'), '/style.css':('style.css','text/css'), '/game.js':('game.js','text/javascript')}
         files.update({'/library.js':('library.js','text/javascript'), '/library.css':('library.css','text/css'), '/course.css':('course.css','text/css'), '/mcq.js':('mcq.js','text/javascript'), '/practice.css':('practice.css','text/css')})
+        files['/learning-paths.js']=('learning-paths.js','text/javascript')
         files['/topics.css']=('topics.css','text/css')
         if path not in files:
             return self.respond({'error':'Not found'},404)
@@ -320,8 +321,10 @@ class Handler(BaseHTTPRequestHandler):
             if self.path=='/api/reading':
                 kind=body.get('kind'); item=body.get('item'); completed=body.get('completed')
                 catalog=LESSONS if kind=='lesson' else SCENARIOS if kind=='scenario' else []
-                if not isinstance(item,str) or item not in {entry['id'] for entry in catalog} or type(completed) is not bool:
-                    raise ValueError('Choose a valid lesson or scenario and completion state.')
+                ids={entry['id'] for entry in catalog}
+                if kind=='first-step': ids={'hello','bindings','types','if-expression','loops','functions'}
+                if not isinstance(item,str) or item not in ids or type(completed) is not bool:
+                    raise ValueError('Choose a valid learning item and completion state.')
                 with connect() as db:
                     if completed:
                         db.execute('INSERT OR IGNORE INTO reading_progress(user_id,kind,item) VALUES(?,?,?)',(user_id,kind,item))

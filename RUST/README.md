@@ -8,6 +8,12 @@ Install Python 3.10+ with Tkinter and a current stable Rust toolchain from https
 
 For browser-only use, run `python app.py` and open http://127.0.0.1:8765. Use `--port 9000` for another port.
 
+## Two ways to start
+
+Open **Learn Rust** and choose **First steps** for six guided activities with predictions, editable values, illustrated prompts, adult-helper notes, and optional browser read-aloud. Each preview models a fixed Rust template; it does not compile arbitrary code. Successful activities save to the signed-in account separately from lesson completion and coding XP.
+
+Choose **Developer path** for all 92 topic lessons and six independent project briefs. Each brief links its prerequisite lessons, defines acceptance criteria, and asks for tests, debugging evidence, and a design explanation. Project reviews are manual. For actual grading, open Coding practice and submit Rust to the local compiler. Neither path claims to measure mastery.
+
 ## Features
 
 - **One topic per module:** 92 individual modules, including separate pages for variables, changing a variable, constants, shadowing, Option, Some, None, Result, Ok, Err, and match. Learning-area filters keep the Rust Book sequence available without grouping several lessons into a single module. Existing lesson IDs and completion records are preserved.

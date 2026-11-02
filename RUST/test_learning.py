@@ -31,6 +31,22 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(len(alice.request('/api/library')[1]['completed']),1)
         for body in [dict(kind='lesson',item='missing',completed=True),dict(kind='lesson',item='hello',completed=1),dict(kind='bad',item='hello',completed=True),dict(kind='lesson',item=[],completed=True)]:
             self.assertEqual(alice.request('/api/reading',body)[0],400)
+    def test_first_steps_are_separate_and_account_scoped(self):
+        alice, bob = Client(), Client()
+        self.assertEqual(alice.register()[0], 200)
+        self.assertEqual(bob.register('bobby')[0], 200)
+        record = dict(kind='first-step', item='hello', completed=True)
+        self.assertEqual(alice.request('/api/reading', record, token='wrong')[0], 403)
+        self.assertEqual(alice.request('/api/reading', {**record, 'item':'ownership'})[0], 400)
+        for _ in range(2):
+            self.assertEqual(alice.request('/api/reading', record)[0], 200)
+        app.init_db()
+        records = alice.request('/api/library')[1]['completed']
+        self.assertEqual([(r['kind'],r['item']) for r in records], [('first-step','hello')])
+        self.assertEqual(bob.request('/api/library')[1]['completed'], [])
+        self.assertEqual(alice.request('/api/state')[1]['progress'], {})
+        self.assertEqual(alice.request('/api/reading', {**record,'completed':False})[0], 200)
+        self.assertEqual(alice.request('/api/library')[1]['completed'], [])
     def test_catalog_integrity(self):
         self.assertEqual(len(LESSONS),92);self.assertEqual(len(MODULES),92)
         self.assertEqual(len(MODULE_DETAILS),92)

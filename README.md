@@ -1,6 +1,6 @@
 # Rustbound
 
-Learn Rust through lessons, coding challenges, production scenarios, and MCQs.
+Start with six guided activities or follow the developer path through 92 topic lessons and six independent projects. Practice with 100 coding challenges, 40 production scenarios, and 40 MCQs.
 
 The Python application and all source files are in [RUST](RUST/README.md).
 
